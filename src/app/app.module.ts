@@ -15,6 +15,9 @@ import {AuthModule} from './auth/auth.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserinfoPanelComponent } from './userinfo-panel/userinfo-panel.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CompaniesTableComponent } from './companies-table/companies-table.component';
+import { StoragesTableComponent } from './storages-table/storages-table.component';
+import { UsersTableComponent } from './users-table/users-table.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
@@ -39,7 +42,10 @@ const appRoutes: Routes = [
     LoginComponent,
     RegistrationComponent,
     UserinfoPanelComponent,
-    HomePageComponent
+    HomePageComponent,
+    CompaniesTableComponent,
+    StoragesTableComponent,
+    UsersTableComponent
   ],
   imports: [
     RouterModule.forRoot(
