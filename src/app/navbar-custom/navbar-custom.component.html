@@ -21,7 +21,9 @@
             class="glyphicon glyphicon-home"></span> Home<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a routerLink="user-info" routerLinkActive="active"> My Profile</a></li>
-            <li><a routerLink="tables" routerLinkActive="active"> My Tables</a></li>
+            <li *ngIf="authService.isAccounter()"><a routerLink="accounter-panel" routerLinkActive="active"> Accounter Tables</a></li>
+            <li *ngIf="authService.isDriver()"><a routerLink="driver-panel" routerLinkActive="active"> Driver Tables</a></li>
+            <li *ngIf="authService.isCompany()"><a routerLink="company-panel" routerLinkActive="active"> Company Tables</a></li>
           </ul>
       </ul>
     </div>

@@ -18,17 +18,23 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CompaniesTableComponent } from './companies-table/companies-table.component';
 import { StoragesTableComponent } from './storages-table/storages-table.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { AccounterPanelComponent } from './accounter-panel/accounter-panel.component';
+import { DriverPanelComponent } from './driver-panel/driver-panel.component';
+import { CompanyPanelComponent } from './company-panel/company-panel.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'user-info', component: UserinfoPanelComponent },
+  { path: 'accounter-panel', component: AccounterPanelComponent },
+  { path: 'driver-panel', component: DriverPanelComponent },
+  { path: 'company-panel', component: CompanyPanelComponent },
   { path: 'home', component: HomePageComponent },
   {
     path: 'tables',
     component: TabsTablesComponent
   },
   { path: '',
-    redirectTo: '/tables',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];
@@ -45,7 +51,10 @@ const appRoutes: Routes = [
     HomePageComponent,
     CompaniesTableComponent,
     StoragesTableComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    AccounterPanelComponent,
+    DriverPanelComponent,
+    CompanyPanelComponent
   ],
   imports: [
     RouterModule.forRoot(
