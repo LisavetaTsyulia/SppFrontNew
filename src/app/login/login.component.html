@@ -1,0 +1,39 @@
+<div class="container form-style">
+  <div class="col-md-4 col-md-offset-4">
+    <h1>Login</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="email" required
+               [(ngModel)]="model.email" name="email" formControlName="email">
+        <div *ngIf="formGroup.get('email').errors && formGroup.get('email').touched" class="alert alert-danger">
+          <div *ngIf="formGroup.get('email').hasError('required')">
+            The Email is required.
+          </div>
+          <div *ngIf="!formGroup.get('email').hasError('minlength')
+                      && formGroup.get('email').hasError('incorrectMailFormat')">
+            The email is wrong.
+          </div>
+          <div *ngIf="formGroup.get('email').hasError('minlength')">
+            The email minimum should be {{formGroup.get('email').getError('minlength').requiredLength}} symbols.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="password" required
+               [(ngModel)]="model.password" name="password" formControlName="password">
+        <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="alert alert-danger">
+          <div *ngIf="formGroup.get('password').hasError('required')">
+            The password is required.
+          </div>
+        </div>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid || submitted">Login</button>
+    </form>
+  </div>
+</div>
+
