@@ -3,11 +3,28 @@
   <div class="jumbotron margin-top">
     <div class="row">
       <div class="col-xs-3">
-        <button class="btn btn-primary btn-large btn-block">List of Users(PDF)</button>
-        <button class="btn btn-primary btn-large btn-block">List of Items(CSV)</button>
-        <button class="btn btn-primary btn-large btn-block">Calculate taxes report(CSV)</button>
-        <button class="btn btn-primary btn-large btn-block">Driver's schedule(XLSX)</button>
-        <button class="btn btn-primary btn-large btn-block">List of Providers(XLSX)</button>
+        <h4>Set document type: </h4>
+        <div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-success btn-large active">
+              <input type="radio" name="options" id="pdf" autocomplete="off" checked=""> PDF
+            </label>
+            <label class="btn btn-success btn-large">
+              <input type="radio" name="options" id="csv" autocomplete="off"> CSV
+            </label>
+            <label class="btn btn-success btn-large">
+              <input type="radio" name="options" id="xlsx" autocomplete="off"> XLSX
+            </label>
+          </div>
+        </div>
+        <h4>Choose document to print: </h4>
+        <p>
+          <button class="btn btn-success btn-large btn-block">List of Users</button>
+          <button class="btn btn-success btn-large btn-block">List of Items</button>
+          <button class="btn btn-success btn-large btn-block">Calculate taxes report</button>
+          <button class="btn btn-success btn-large btn-block">Driver's schedule</button>
+          <button class="btn btn-success btn-large btn-block">List of Providers</button>
+        </p>
       </div>
       <div class="col-xs-9" style="font-family: 'Yu Gothic UI Semibold'; font-size: 15px; color: #000011; link: #2e2e2e;">
         <app-tabs-tables></app-tabs-tables>
