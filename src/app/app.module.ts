@@ -23,6 +23,7 @@ import { DriverPanelComponent } from './driver-panel/driver-panel.component';
 import { CompanyPanelComponent } from './company-panel/company-panel.component';
 import {CompanyTabsTablesComponent} from "./company-tabs-table/company-tabs-tables.component";
 import {DriverTabsTablesComponent} from "./driver-tabs-table/driver-tabs-tables.component";
+import {OrdersTableComponent} from "./orders-table/orders-table.component";
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     TabsTablesComponent,
     DriverTabsTablesComponent,
     CompanyTabsTablesComponent,
+    OrdersTableComponent,
     LoginComponent,
     RegistrationComponent,
     UserinfoPanelComponent,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Http} from "@angular/http";
+import {Http} from '@angular/http';
 import {ServerDataSource} from 'ng2-smart-table';
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse} from '@angular/common/http';
 
 
 @Component({
@@ -12,14 +12,14 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class TestBdTableComponent {
   http = null;
   settings = {
-    add:{
-      confirmCreate:true
+    add: {
+      confirmCreate: true
     },
-    delete :{
+    delete : {
       confirmDelete: true
     },
-    edit:{
-      confirmSave:true
+    edit: {
+      confirmSave: true
     },
     columns: {
       id: {
@@ -50,11 +50,11 @@ export class TestBdTableComponent {
   }
 
   onConfirmCreate(event) {
-    let data = {"id" : event.newData.id,
-      "category" : event.newData.category,
-      "expiryDate" : event.newData.expire_date,
-      "price" : event.newData.price,
-      "name" : event.newData.name
+    const data = {'id' : event.newData.id,
+      'category' : event.newData.category,
+      'expiryDate' : event.newData.expire_date,
+      'price' : event.newData.price,
+      'name' : event.newData.name
     };
     this.http.post('http://localhost:4321/addNewItem', data).subscribe(
       res => {
@@ -64,19 +64,19 @@ export class TestBdTableComponent {
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
+          console.log('Client-side error occured.');
         } else {
-          console.log("Server-side error occured.");
+          console.log('Server-side error occured.');
         }
       });
   }
 
   updateRecord(event) {
-    let data = {"id" : event.newData.id,
-      "category" : event.newData.category,
-      "expiryDate" : event.newData.expire_date,
-      "price" : event.newData.price,
-      "name" : event.newData.name
+    const data = {'id' : event.newData.id,
+      'category' : event.newData.category,
+      'expiryDate' : event.newData.expire_date,
+      'price' : event.newData.price,
+      'name' : event.newData.name
     };
     this.http.put('http://localhost:4321/updateItem', data).subscribe(
       res => {
@@ -85,26 +85,30 @@ export class TestBdTableComponent {
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
+          console.log('Client-side error occured.');
         } else {
-          console.log("Server-side error occured.");
+          console.log('Server-side error occured.');
         }
       });
   }
 
-  deleteRecord(event){
-    console.log(event.data);
-    this.http.delete('http://localhost:4321/deleteItem/'+event.data.id).subscribe(
-      res => {
-        console.log(res);
-        event.confirm.resolve(event.source.data);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log("Client-side error occured.");
-        } else {
-          console.log("Server-side error occured.");
-        }
-      });
+  deleteRecord(event) {
+    if (window.confirm('Are you sure you want to delete?')) {
+      console.log(event.data);
+      this.http.delete('http://localhost:4321/deleteItem/' + event.data.id).subscribe(
+        res => {
+          console.log(res);
+          event.confirm.resolve(event.source.data);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log('Client-side error occured.');
+          } else {
+            console.log('Server-side error occured.');
+          }
+        });
+    } else {
+      event.confirm.reject();
+    }
   }
 }

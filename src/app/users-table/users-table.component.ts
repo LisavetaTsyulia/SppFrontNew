@@ -99,19 +99,23 @@ export class UsersTableComponent {
   }
 
   deleteRecord(event) {
-    console.log(event.data);
-    this.http.delete('http://localhost:4321/deleteUser/' + event.data.id).subscribe(
-      res => {
-        console.log(res);
-        event.confirm.resolve(event.source.data);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    if (window.confirm('Are you sure you want to delete?')) {
+      console.log(event.data);
+      this.http.delete('http://localhost:4321/deleteUser/' + event.data.id).subscribe(
+        res => {
+          console.log(res);
+          event.confirm.resolve(event.source.data);
+        },
+        (err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            console.log('Client-side error occured.');
+          } else {
+            console.log('Server-side error occured.');
+          }
+        });
+    } else {
+      event.confirm.reject();
+    }
   }
 
 }
