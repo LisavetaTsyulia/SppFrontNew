@@ -37,8 +37,7 @@ export class UsersTableComponent {
         type: 'text'
       },
       role: {
-        title: 'Role',
-        editable: false
+        title: 'Role'
       },
       salary: {
         title: 'Salary',
@@ -88,6 +87,7 @@ export class UsersTableComponent {
       res => {
         console.log(res);
         event.confirm.resolve(event.newData);
+        this.source.refresh();
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

@@ -1,9 +1,17 @@
 <div class="container form-style" style="top: 150px;">
-  <div class="jumbotron margin-top">
+  <div *ngIf="!authService.isAuthenticated()" class="jumbotron margin-top">
     <h1>Welcome to the Your tax App!!!</h1>
     <p>You can watch your files and print them right here!</p>
     <p>So easy!</p>
     <p><a routerLink="../registration" routerLinkActive="active"
           class="btn btn-primary btn-lg">Join US</a></p>
+  </div>
+  <div *ngIf="authService.isAuthenticated()" class="jumbotron margin-top">
+    <h1>Welcome back!!! Dear {{username}}!!!</h1>
+    <p>We have many updates and interesting time spending! </p>
+    <p>So useful! So convenient! So easy!</p>
+    <img src="https://img.informer.com/articles_uploads/3/3430/main.png">
+    <p><a routerLink="../user-info" routerLinkActive="active"
+          class="btn btn-default btn-lg">Go to Your Profile!</a></p>
   </div>
 </div>
