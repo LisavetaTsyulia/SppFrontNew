@@ -21,6 +21,8 @@ import { UsersTableComponent } from './users-table/users-table.component';
 import { AccounterPanelComponent } from './accounter-panel/accounter-panel.component';
 import { DriverPanelComponent } from './driver-panel/driver-panel.component';
 import { CompanyPanelComponent } from './company-panel/company-panel.component';
+import {CompanyTabsTablesComponent} from "./company-tabs-table/company-tabs-tables.component";
+import {DriverTabsTablesComponent} from "./driver-tabs-table/driver-tabs-tables.component";
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
   {
     path: 'tables',
     component: TabsTablesComponent
+
   },
   { path: '',
     redirectTo: '/home',
@@ -45,6 +48,8 @@ const appRoutes: Routes = [
     TestBdTableComponent,
     NavbarCustomComponent,
     TabsTablesComponent,
+    DriverTabsTablesComponent,
+    CompanyTabsTablesComponent,
     LoginComponent,
     RegistrationComponent,
     UserinfoPanelComponent,
