@@ -3,8 +3,25 @@
   <div class="jumbotron margin-top">
     <div class="row">
       <div class="col-xs-3">
-        <button class="btn btn-primary btn-large btn-block">List of Storages(SCV)</button>
-        <button class="btn btn-primary btn-large btn-block">List of Items on Storages(XLSX)</button>
+        <h4>Set document type: </h4>
+        <div>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-success btn-large active">
+              <input type="radio" name="options" id="pdf" autocomplete="off" checked=""> PDF
+            </label>
+            <label class="btn btn-success btn-large">
+              <input type="radio" name="options" id="csv" autocomplete="off"> CSV
+            </label>
+            <label class="btn btn-success btn-large">
+              <input type="radio" name="options" id="xlsx" autocomplete="off"> XLSX
+            </label>
+          </div>
+        </div>
+        <h4>Choose document to print: </h4>
+        <p>
+          <button class="btn btn-success btn-large btn-block">List of Storages</button>
+          <button class="btn btn-success btn-large btn-block">List of Items on Storages</button>
+        </p>
       </div>
       <div class="col-xs-9">
         <app-company-tabs-tables></app-company-tabs-tables>
