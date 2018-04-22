@@ -24,6 +24,7 @@ import { CompanyPanelComponent } from './company-panel/company-panel.component';
 import {CompanyTabsTablesComponent} from "./company-tabs-table/company-tabs-tables.component";
 import {DriverTabsTablesComponent} from "./driver-tabs-table/driver-tabs-tables.component";
 import {OrdersTableComponent} from "./orders-table/orders-table.component";
+import { FooterComponent } from './footer/footer.component';
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     UsersTableComponent,
     AccounterPanelComponent,
     DriverPanelComponent,
-    CompanyPanelComponent
+    CompanyPanelComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(

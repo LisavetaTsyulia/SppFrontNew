@@ -1,0 +1,16 @@
+.footer {
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: relative;
+  text-align: center;
+  margin-top: 252px;
+  color: #ffffff;
+  padding: 20px;
+  background-color: #5cb85c;;
+}
+
+.type-12 {
+  font-size: 30px !important;
+  line-height: 1.8rem ;
+}
