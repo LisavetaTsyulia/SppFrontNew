@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Http} from '@angular/http';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-accounter-panel',
@@ -7,9 +9,83 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccounterPanelComponent implements OnInit {
 
-  constructor() { }
+  http = null;
+  format = 'PDF';
+
+  constructor(http: Http) {
+    this.http = http;
+  }
 
   ngOnInit() {
   }
 
+  printListOfUsers() {
+    this.http.post('http://localhost:4321/documents/printListOfUsers/' + this.format).subscribe(
+      res => {
+        console.log(res);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side error occured.');
+        } else {
+          console.log('Server-side error occured.');
+        }
+      });
+  }
+
+  printListOfItems() {
+    this.http.post('http://localhost:4321/documents/printListOfItems/' + this.format).subscribe(
+      res => {
+        console.log(res);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side error occured.');
+        } else {
+          console.log('Server-side error occured.');
+        }
+      });
+  }
+
+  printTaxes() {
+    this.http.post('http://localhost:4321/documents/printTaxes/' + this.format).subscribe(
+      res => {
+        console.log(res);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side error occured.');
+        } else {
+          console.log('Server-side error occured.');
+        }
+      });
+  }
+
+  printDriversSchedule() {
+    this.http.post('http://localhost:4321/documents/printDriversSchedule/' + this.format).subscribe(
+      res => {
+        console.log(res);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side error occured.');
+        } else {
+          console.log('Server-side error occured.');
+        }
+      });
+  }
+
+  printListOfProviders() {
+    this.http.post('http://localhost:4321/documents/printListOfProviders/' + this.format).subscribe(
+      res => {
+        console.log(res);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side error occured.');
+        } else {
+          console.log('Server-side error occured.');
+        }
+      });
+  }
 }
