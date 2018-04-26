@@ -32,10 +32,6 @@ export class TestBdTableComponent {
       category: {
         title: 'Category',
       },
-      expire_date: {
-        title: 'Expire date',
-        type: 'text'
-      },
       price: {
         title: 'Price',
       },
@@ -52,7 +48,6 @@ export class TestBdTableComponent {
   onConfirmCreate(event) {
     const data = {'id' : event.newData.id,
       'category' : event.newData.category,
-      'expiryDate' : event.newData.expire_date,
       'price' : event.newData.price,
       'name' : event.newData.name
     };
@@ -74,7 +69,6 @@ export class TestBdTableComponent {
   updateRecord(event) {
     const data = {'id' : event.newData.id,
       'category' : event.newData.category,
-      'expiryDate' : event.newData.expire_date,
       'price' : event.newData.price,
       'name' : event.newData.name
     };

@@ -20,35 +20,17 @@ export class AccounterPanelComponent implements OnInit {
   }
 
   printListOfUsers() {
-    this.http.post('http://localhost:4321/documents/printListOfUsers/' + this.format).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    const url = 'http://localhost:4321/document/printListOfUsers/' + this.format;
+    window.open(url);
   }
 
   printListOfItems() {
-    this.http.post('http://localhost:4321/documents/printListOfItems/' + this.format).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    const url = 'http://localhost:4321/document/printListOfItems/' + this.format;
+    window.open(url);
   }
 
   printTaxes() {
-    this.http.post('http://localhost:4321/documents/printTaxes/' + this.format).subscribe(
+    this.http.get('http://localhost:4321/document/printTaxes/' + this.format).subscribe(
       res => {
         console.log(res);
       },
@@ -62,30 +44,12 @@ export class AccounterPanelComponent implements OnInit {
   }
 
   printDriversSchedule() {
-    this.http.post('http://localhost:4321/documents/printDriversSchedule/' + this.format).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    const url = 'http://localhost:4321/document/printDriversSchedule/' + this.format;
+    window.open(url);
   }
 
   printListOfProviders() {
-    this.http.post('http://localhost:4321/documents/printListOfProviders/' + this.format).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    const url = 'http://localhost:4321/document/printListOfProviders/' + this.format;
+    window.open(url);
   }
 }
