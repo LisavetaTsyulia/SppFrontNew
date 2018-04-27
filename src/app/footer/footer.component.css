@@ -4,10 +4,16 @@
   bottom: 0;
   position: relative;
   text-align: center;
-  margin-top: 252px;
+  margin-top: 30px;
   color: #ffffff;
   padding: 20px;
   background-color: #5cb85c;;
+}
+
+.footer a, a:hover
+{
+  text-decoration: none;
+  color: white;
 }
 
 .type-12 {
