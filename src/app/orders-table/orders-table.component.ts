@@ -25,14 +25,11 @@ export class OrdersTableComponent {
         title: 'ID',
         editable: false
       },
-      userId: {
-        title: 'User ID'
+      date: {
+        title: 'Date'
       },
-      storageId: {
-        title: 'Storage ID'
-      },
-      ItemId: {
-        title: 'Item'
+      wasThere: {
+        title: 'Completed'
       },
       amount: {
         title: 'Amount',
@@ -47,15 +44,14 @@ export class OrdersTableComponent {
 
   constructor(http: Http) {
     this.http = http;
-    this.source = new ServerDataSource(http, {endPoint: 'http://localhost:4321/getAllDataFromCompanies'});
+    this.source = new ServerDataSource(http, {endPoint: 'http://localhost:4321/getAllDataFromOrders'});
   }
 
   onConfirmCreate(event) {
     const data = {
       'id': event.newData.id,
-      'storage_id': event.newData.storageId,
-      'user_id': event.newData.userId,
-      'item_id': event.newData.ItemId,
+      'was_there': event.newData.wasThere,
+      'date': event.newData.date,
       'amount': event.newData.amount,
       'price': event.newData.totalPrice
     };
@@ -77,9 +73,8 @@ export class OrdersTableComponent {
   updateRecord(event) {
     const data = {
       'id': event.newData.id,
-      'storage_id': event.newData.storageId,
-      'user_id': event.newData.userId,
-      'item_id': event.newData.ItemId,
+      'was_there': event.newData.wasThere,
+      'date': event.newData.date,
       'amount': event.newData.amount,
       'price': event.newData.totalPrice
     };
