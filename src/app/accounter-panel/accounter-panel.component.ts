@@ -30,17 +30,8 @@ export class AccounterPanelComponent implements OnInit {
   }
 
   printTaxes() {
-    this.http.get('http://localhost:4321/document/printTaxes/' + this.format).subscribe(
-      res => {
-        console.log(res);
-      },
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('Client-side error occured.');
-        } else {
-          console.log('Server-side error occured.');
-        }
-      });
+    const url = 'http://localhost:4321/document/printTaxes/' + this.format;
+    window.open(url);
   }
 
   printDriversSchedule() {
