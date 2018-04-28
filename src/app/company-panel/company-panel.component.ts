@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from '@angular/http';
 
 @Component({
   selector: 'app-company-panel',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyPanelComponent implements OnInit {
 
-  constructor() { }
+  http = null;
+  format = 'PDF';
+
+  constructor(http: Http) {
+    this.http = http;
+  }
 
   ngOnInit() {
   }
 
+  printListOfStorages() {
+    const url = 'http://localhost:4321/document/printListOfStorages/' + this.format;
+    window.open(url);
+  }
+
+  printListOfItems() {
+    const url = 'http://localhost:4321/document/printListOfItems/' + this.format;
+    window.open(url);
+  }
 }
