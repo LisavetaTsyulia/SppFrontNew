@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from '@angular/http';
 
 @Component({
   selector: 'app-driver-panel',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverPanelComponent implements OnInit {
 
-  constructor() { }
+  http = null;
+  format = 'PDF';
+
+  constructor(http: Http) {
+    this.http = http;
+  }
 
   ngOnInit() {
   }
 
+  printListOfOrders() {
+    const url = 'http://localhost:4321/document/printListOfOrders/' + this.format;
+    window.open(url);
+  }
 }
